@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b8iw8fhpsj4mf"]
+
+[ext_resource type="Script" uid="uid://da034apn4c1wu" path="res://Scenes/GameObjects/SoulLantern/soul_lantern.gd" id="1_bfsu6"]
+[ext_resource type="Texture2D" uid="uid://dybwpujnecbk4" path="res://icon.svg" id="1_gooe6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_twto6"]
+height = 0.68847656
+radius = 0.31933594
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b2glc"]
+height = 0.8251953
+radius = 1.0
+
+[node name="SoulLantern" type="StaticBody3D" unique_id=112003291 node_paths=PackedStringArray("sprite", "entity_detector", "entity_detector_collision")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_bfsu6")
+sprite = NodePath("Sprite3D")
+entity_detector = NodePath("EntityDetector")
+entity_detector_collision = NodePath("EntityDetector/CollisionShape3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1037218667]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+texture = ExtResource("1_gooe6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1276227715]
+shape = SubResource("CylinderShape3D_twto6")
+
+[node name="EntityDetector" type="Area3D" parent="." unique_id=1460548731]
+collision_layer = 0
+collision_mask = 28
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntityDetector" unique_id=846986909]
+shape = SubResource("CylinderShape3D_b2glc")
+
+[connection signal="body_entered" from="EntityDetector" to="." method="_on_entity_detector_body_entered"]
+[connection signal="body_exited" from="EntityDetector" to="." method="_on_entity_detector_body_exited"]

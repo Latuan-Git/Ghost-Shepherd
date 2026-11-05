@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://47xx0lr4na6k"]
+
+[ext_resource type="PackedScene" uid="uid://p8tc30gr5qei" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Grass_2_D_Singlesided_Color1.fbx" id="1_hrdlt"]
+[ext_resource type="Shader" uid="uid://dlmhcajh8xped" path="res://Code/Shaders/EnvironmentShaders/grass_waving.gdshader" id="2_07a6q"]
+[ext_resource type="Texture2D" uid="uid://cgdue7svq8eo2" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Textures/forest_texture.png" id="3_5d45u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfnfc"]
+render_priority = 0
+shader = ExtResource("2_07a6q")
+shader_parameter/grass_texture = ExtResource("3_5d45u")
+shader_parameter/sway_speed_x = 1.25
+shader_parameter/sway_speed_z = 0.45
+shader_parameter/max_angle_x = 0.075
+shader_parameter/max_angle_z = 0.05
+shader_parameter/blade_height = 1.0
+
+[node name="Grass_E" unique_id=1256316867 instance=ExtResource("1_hrdlt")]
+
+[node name="Grass_2_D_Singlesided_Color1" parent="." index="0" unique_id=918691693]
+material_override = SubResource("ShaderMaterial_lfnfc")

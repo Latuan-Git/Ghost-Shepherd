@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dgw3pgufervsl"]
+
+[ext_resource type="Script" uid="uid://b0x6gev1qy5c8" path="res://Scenes/Entities/Player/player_camera.gd" id="1_itkoo"]
+[ext_resource type="Shader" uid="uid://botni6ow545bv" path="res://Code/Shaders/CameraShaders/camera_vingette.gdshader" id="2_kvvap"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_itkoo"]
+shader = ExtResource("2_kvvap")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/MULTIPLIER = 0.85
+shader_parameter/SCALE = 1.325
+shader_parameter/SOFTNESS = 0.55
+
+[node name="PlayerCamera" type="Camera3D" unique_id=774728571]
+transform = Transform3D(-4.371139e-08, -0.57357645, 0.81915206, 0, 0.81915206, 0.57357645, -1, 2.5071824e-08, -3.5806274e-08, 0, 0, 0)
+h_offset = 1.0
+fov = 60.0
+script = ExtResource("1_itkoo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=64220854]
+material = SubResource("ShaderMaterial_itkoo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

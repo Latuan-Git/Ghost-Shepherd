@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b51ef8ktvxc1v"]
+
+[ext_resource type="Script" uid="uid://bd0qqebrfcpdl" path="res://Scenes/GameObjects/Gate/gate.gd" id="1_q3ush"]
+[ext_resource type="Texture2D" uid="uid://dybwpujnecbk4" path="res://icon.svg" id="2_6mav6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6ggj"]
+albedo_texture = ExtResource("2_6mav6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twto6"]
+transparency = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_twto6"]
+material = SubResource("StandardMaterial3D_twto6")
+size = Vector3(1.5546875, 1, 0.26342773)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ox0q5"]
+data = PackedVector3Array(-0.7773, 0.5, 0.1317, 0.7773, 0.5, 0.1317, -0.7773, -0.5, 0.1317, 0.7773, 0.5, 0.1317, 0.7773, -0.5, 0.1317, -0.7773, -0.5, 0.1317, 0.7773, 0.5, -0.1317, -0.7773, 0.5, -0.1317, 0.7773, -0.5, -0.1317, -0.7773, 0.5, -0.1317, -0.7773, -0.5, -0.1317, 0.7773, -0.5, -0.1317, 0.7773, 0.5, 0.1317, 0.7773, 0.5, -0.1317, 0.7773, -0.5, 0.1317, 0.7773, 0.5, -0.1317, 0.7773, -0.5, -0.1317, 0.7773, -0.5, 0.1317, -0.7773, 0.5, -0.1317, -0.7773, 0.5, 0.1317, -0.7773, -0.5, -0.1317, -0.7773, 0.5, 0.1317, -0.7773, -0.5, 0.1317, -0.7773, -0.5, -0.1317, 0.7773, 0.5, 0.1317, -0.7773, 0.5, 0.1317, 0.7773, 0.5, -0.1317, -0.7773, 0.5, 0.1317, -0.7773, 0.5, -0.1317, 0.7773, 0.5, -0.1317, -0.7773, -0.5, 0.1317, 0.7773, -0.5, 0.1317, -0.7773, -0.5, -0.1317, 0.7773, -0.5, 0.1317, 0.7773, -0.5, -0.1317, -0.7773, -0.5, -0.1317)
+
+[node name="Gate" type="StaticBody3D" unique_id=1630355178 node_paths=PackedStringArray("gate_mesh", "collision")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_q3ush")
+gate_mesh = NodePath("MeshInstance3D")
+collision = NodePath("CollisionShape3D2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=257014578]
+material_override = SubResource("StandardMaterial3D_y6ggj")
+mesh = SubResource("BoxMesh_twto6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=204076668]
+shape = SubResource("ConcavePolygonShape3D_ox0q5")

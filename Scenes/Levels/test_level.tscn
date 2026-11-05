@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://db8jlpgbep60i"]
+
+[ext_resource type="PackedScene" uid="uid://dgw3pgufervsl" path="res://Scenes/Entities/Player/player_camera.tscn" id="1_k8g1k"]
+[ext_resource type="Texture2D" uid="uid://dxhod52me27x4" path="res://addons/godot-prototype-texture/PNG/grid_1024x1024/grid_cyan_1024x1024.png" id="2_x4x4f"]
+[ext_resource type="PackedScene" uid="uid://33j47ovel0qw" path="res://Scenes/Entities/Player/Player.tscn" id="3_l7ek2"]
+[ext_resource type="PackedScene" uid="uid://e70nacg05fkl" path="res://Scenes/Entities/GhostSheep/ghost_sheep.tscn" id="4_7rivk"]
+[ext_resource type="PackedScene" uid="uid://b8iw8fhpsj4mf" path="res://Scenes/GameObjects/SoulLantern/soul_lantern.tscn" id="5_hyk2w"]
+[ext_resource type="PackedScene" uid="uid://b51ef8ktvxc1v" path="res://Scenes/GameObjects/Gate/gate.tscn" id="6_mvu5i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c2mv"]
+albedo_texture = ExtResource("2_x4x4f")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f7g2b"]
+data = PackedVector3Array(-2.586609, -0.5, 6.565918, -2.586609, -0.5, -6.565918, -2.586609, 0.5, -6.565918, 2.586609, -0.5, -6.565918, -2.586609, -0.5, -6.565918, -2.586609, -0.5, 6.565918, -2.586609, 0.5, -6.565918, -2.586609, -0.5, -6.565918, 2.586609, -0.5, -6.565918, -2.586609, 0.5, -6.565918, -2.586609, 0.5, 6.565918, -2.586609, -0.5, 6.565918, -2.586609, -0.5, 6.565918, -2.586609, 0.5, 6.565918, 2.586609, 0.5, 6.565918, 2.586609, 0.5, 6.565918, -2.586609, 0.5, 6.565918, -2.586609, 0.5, -6.565918, -2.586609, -0.5, 6.565918, 2.586609, -0.5, 6.565918, 2.586609, -0.5, -6.565918, 2.586609, 0.5, 6.565918, 2.586609, -0.5, 6.565918, -2.586609, -0.5, 6.565918, 2.586609, -0.5, -6.565918, 2.586609, -0.5, 6.565918, 2.586609, 0.5, 6.565918, 2.586609, -0.5, -6.565918, 2.586609, 0.5, -6.565918, -2.586609, 0.5, -6.565918, -2.586609, 0.5, -6.565918, 2.586609, 0.5, -6.565918, 2.586609, 0.5, 6.565918, 2.586609, 0.5, 6.565918, 2.586609, 0.5, -6.565918, 2.586609, -0.5, -6.565918)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_btda1"]
+data = PackedVector3Array(-1.7494202, -0.5, 0.5, -1.7494202, -0.5, -0.5, -1.7494202, 0.5, -0.5, 1.7494202, -0.5, -0.5, -1.7494202, -0.5, -0.5, -1.7494202, -0.5, 0.5, -1.7494202, 0.5, -0.5, -1.7494202, -0.5, -0.5, 1.7494202, -0.5, -0.5, -1.7494202, 0.5, -0.5, -1.7494202, 0.5, 0.5, -1.7494202, -0.5, 0.5, -1.7494202, -0.5, 0.5, -1.7494202, 0.5, 0.5, 1.7494202, 0.5, 0.5, 1.7494202, 0.5, 0.5, -1.7494202, 0.5, 0.5, -1.7494202, 0.5, -0.5, -1.7494202, -0.5, 0.5, 1.7494202, -0.5, 0.5, 1.7494202, -0.5, -0.5, 1.7494202, 0.5, 0.5, 1.7494202, -0.5, 0.5, -1.7494202, -0.5, 0.5, 1.7494202, -0.5, -0.5, 1.7494202, -0.5, 0.5, 1.7494202, 0.5, 0.5, 1.7494202, -0.5, -0.5, 1.7494202, 0.5, -0.5, -1.7494202, 0.5, -0.5, -1.7494202, 0.5, -0.5, 1.7494202, 0.5, -0.5, 1.7494202, 0.5, 0.5, 1.7494202, 0.5, 0.5, 1.7494202, 0.5, -0.5, 1.7494202, -0.5, -0.5)
+
+[node name="TestLevel" type="Node3D" unique_id=939845388]
+
+[node name="PlayerCamera" parent="." unique_id=774728571 node_paths=PackedStringArray("player") instance=ExtResource("1_k8g1k")]
+transform = Transform3D(-4.371139e-08, -0.57357645, 0.81915206, 0, 0.81915206, 0.57357645, -1, 2.5071824e-08, -3.5806274e-08, 5, 4.5, 0)
+player = NodePath("../Player")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1477990730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6531372, -0.5016172, 0)
+material_override = SubResource("StandardMaterial3D_1c2mv")
+size = Vector3(5.173218, 1, 13.131836)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D" unique_id=1671892254]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D" unique_id=1412126017]
+shape = SubResource("ConcavePolygonShape3D_f7g2b")
+disabled = true
+
+[node name="Player" parent="." unique_id=1917041307 instance=ExtResource("3_l7ek2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5134691, 0)
+lure_ring_size = 3.385
+
+[node name="GhostSheep" parent="." unique_id=1670386254 instance=ExtResource("4_7rivk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50422716, 2.86059)
+
+[node name="GhostSheep2" parent="." unique_id=2034449170 instance=ExtResource("4_7rivk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2684822, 0.50422716, 3.9464855)
+
+[node name="GhostSheep3" parent="." unique_id=1896388597 instance=ExtResource("4_7rivk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44153476, 0.50422716, 4.6940923)
+
+[node name="SoulLantern" parent="." unique_id=112003291 node_paths=PackedStringArray("connected_objects") instance=ExtResource("5_hyk2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6645049, -4.9741654)
+connected_objects = [NodePath("../Gate")]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1162579523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5777473, 0.42628312, 0)
+size = Vector3(3.4988403, 1, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2" unique_id=448583379]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D" unique_id=1629586389]
+shape = SubResource("ConcavePolygonShape3D_btda1")
+
+[node name="Gate" parent="." unique_id=1630355178 instance=ExtResource("6_mvu5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0878235, 0, 0)

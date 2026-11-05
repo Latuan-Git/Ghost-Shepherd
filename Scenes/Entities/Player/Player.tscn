@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://33j47ovel0qw"]
+
+[ext_resource type="Script" uid="uid://d3ayn63uku8le" path="res://Scenes/Entities/Player/player.gd" id="1_kne1u"]
+[ext_resource type="Texture2D" uid="uid://cv16gj4nja1lr" path="res://Assets/2D/Sprite Pack/Character/Idle/Idle-Sheet.png" id="2_e80uo"]
+[ext_resource type="Texture2D" uid="uid://dwfljdhytifkk" path="res://Assets/2D/Sprite Pack/Character/Run/Run-Sheet.png" id="3_cxr5p"]
+[ext_resource type="Script" uid="uid://c401qlft7t042" path="res://Scenes/Entities/Player/follower_manager.gd" id="4_ude3g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hsoxx"]
+radius = 0.15576172
+height = 1.0117188
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y646j"]
+atlas = ExtResource("2_e80uo")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnbra"]
+atlas = ExtResource("2_e80uo")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6emce"]
+atlas = ExtResource("2_e80uo")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lowby"]
+atlas = ExtResource("2_e80uo")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58smv"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a25ih"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38et7"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7ax5"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bgwg"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hfll"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fqlb"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8hb2"]
+atlas = ExtResource("3_cxr5p")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f7g2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y646j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnbra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6emce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lowby")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58smv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a25ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38et7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7ax5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bgwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hfll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fqlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8hb2")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmcll"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_ipefp"]
+material = SubResource("StandardMaterial3D_jmcll")
+inner_radius = 2.5
+outer_radius = 2.7
+
+[sub_resource type="Curve" id="Curve_ude3g"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jmcll"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_twto6"]
+radius = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w7ni"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(1, 1, 1, 0.22745098)
+
+[sub_resource type="TorusMesh" id="TorusMesh_twto6"]
+material = SubResource("StandardMaterial3D_7w7ni")
+inner_radius = 0.004
+outer_radius = 0.251
+
+[node name="Player" type="CharacterBody3D" unique_id=1917041307 node_paths=PackedStringArray("sprite", "lure_ring_effect", "lure_ring_detection", "lure_ring_detection_shape", "lure_distance_display")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_kne1u")
+sprite = NodePath("PlayerSprite")
+lure_ring_effect = NodePath("LureEffect")
+lure_ring_detection = NodePath("LureEffect/LureDetectionRing")
+lure_ring_detection_shape = NodePath("LureEffect/LureDetectionRing/LureDetectionShape")
+lure_distance_display = NodePath("LureEffect/LureDistanceDisplay")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=809406408]
+shape = SubResource("CapsuleShape3D_hsoxx")
+
+[node name="PlayerSprite" type="AnimatedSprite3D" parent="." unique_id=614905028]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, 0, 0)
+layers = 2
+billboard = 1
+shaded = true
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_f7g2b")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.40550438
+
+[node name="OmniLight3D" type="OmniLight3D" parent="PlayerSprite" unique_id=453186373]
+transform = Transform3D(0.47619048, 0, -7.1054274e-15, 0, 0.47619048, 0, 7.1054274e-15, 0, 0.47619048, 0.14259306, 0.21344085, -0.0129603)
+layers = 16
+light_color = Color(1, 0.9040571, 0.5167319, 1)
+light_cull_mask = 4294967287
+shadow_enabled = true
+shadow_caster_mask = 4294967287
+omni_range = 1.454
+
+[node name="FollowerManager" type="Node3D" parent="." unique_id=768324061]
+script = ExtResource("4_ude3g")
+
+[node name="LureEffect" type="CPUParticles3D" parent="." unique_id=1510178610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4915704, 0)
+layers = 8
+emitting = false
+amount = 1
+one_shot = true
+mesh = SubResource("TorusMesh_ipefp")
+gravity = Vector3(0, 0, 0)
+scale_amount_curve = SubResource("Curve_ude3g")
+color_ramp = SubResource("Gradient_jmcll")
+
+[node name="LureDetectionRing" type="Area3D" parent="LureEffect" unique_id=1291905189]
+collision_layer = 0
+collision_mask = 24
+
+[node name="LureDetectionShape" type="CollisionShape3D" parent="LureEffect/LureDetectionRing" unique_id=608068330]
+shape = SubResource("CylinderShape3D_twto6")
+
+[node name="LureDistanceDisplay" type="MeshInstance3D" parent="LureEffect" unique_id=1411160571]
+layers = 8
+mesh = SubResource("TorusMesh_twto6")
+
+[node name="ShadowLight" type="SpotLight3D" parent="." unique_id=410605851]
+process_priority = 1
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.7723396, 0)
+visible = false
+layers = 8
+light_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+light_negative = true
+light_cull_mask = 4294966273
+spot_angle = 18.27

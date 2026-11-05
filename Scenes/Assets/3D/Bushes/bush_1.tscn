@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ba0y26eq8o2kx"]
+
+[ext_resource type="PackedScene" uid="uid://csmy8kumsq7gl" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Bush_2_B_Color1.fbx" id="1_6e2y6"]
+
+[node name="Bush_A" unique_id=1331337435 instance=ExtResource("1_6e2y6")]

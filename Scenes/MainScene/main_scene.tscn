@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ncffs5pw63gi"]
+
+[ext_resource type="Script" uid="uid://qvjfs51iaqml" path="res://Scenes/MainScene/main_scene.gd" id="1_s8gek"]
+
+[node name="MainScene" type="Node" unique_id=1080809085 node_paths=PackedStringArray("root3d", "rootui")]
+script = ExtResource("1_s8gek")
+starting_scene = "test_level"
+root3d = NodePath("Root3D")
+rootui = NodePath("CanvasLayer/RootUI")
+
+[node name="Root3D" type="Node3D" parent="." unique_id=2025537535]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1105965054]
+
+[node name="RootUI" type="Control" parent="CanvasLayer" unique_id=324539392]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioManager" type="Node" parent="." unique_id=210008174]

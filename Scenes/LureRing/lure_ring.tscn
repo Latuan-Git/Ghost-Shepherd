@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cekdpahwygntc"]
+
+[ext_resource type="Script" uid="uid://yxe7tbcra5rj" path="res://Scenes/LureRing/lure_ring.gd" id="1_nfybw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_twto6"]
+resource_local_to_scene = true
+height = 1.0
+radius = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2glc"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="TorusMesh" id="TorusMesh_twto6"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_b2glc")
+inner_radius = 0.001
+outer_radius = 0.2
+
+[node name="LureRing" type="Area3D" unique_id=775806941 node_paths=PackedStringArray("collision", "ring_mesh")]
+script = ExtResource("1_nfybw")
+collision = NodePath("CollisionShape3D")
+ring_mesh = NodePath("MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1869692571]
+shape = SubResource("CylinderShape3D_twto6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1367763871]
+mesh = SubResource("TorusMesh_twto6")

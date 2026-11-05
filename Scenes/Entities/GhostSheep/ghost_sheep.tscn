@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://e70nacg05fkl"]
+
+[ext_resource type="Script" uid="uid://eg0ertk0jthv" path="res://Scenes/Entities/GhostSheep/ghost_sheep.gd" id="1_apexs"]
+[ext_resource type="Texture2D" uid="uid://c0ak4x71oa0wa" path="res://Assets/2D/Sprite Pack/Mob/Boar/Idle/Idle-Sheet-White.png" id="1_o0uje"]
+[ext_resource type="Texture2D" uid="uid://lsbeqsrmtggv" path="res://Assets/2D/Sprite Pack/Mob/Boar/Run/Run-Sheet-White.png" id="2_apexs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_twto6"]
+radius = 0.19189453
+height = 0.38378906
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw1m1"]
+atlas = ExtResource("1_o0uje")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k02v"]
+atlas = ExtResource("1_o0uje")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3tvc"]
+atlas = ExtResource("1_o0uje")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr5k3"]
+atlas = ExtResource("1_o0uje")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3rbo"]
+atlas = ExtResource("2_apexs")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ybnw"]
+atlas = ExtResource("2_apexs")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3oy2"]
+atlas = ExtResource("2_apexs")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r4wk"]
+atlas = ExtResource("2_apexs")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f00xy"]
+atlas = ExtResource("2_apexs")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsmpm"]
+atlas = ExtResource("2_apexs")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twto6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw1m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k02v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3tvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr5k3")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3rbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ybnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3oy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r4wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f00xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsmpm")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 8.0
+}]
+
+[node name="GhostSheep" type="CharacterBody3D" unique_id=1670386254 node_paths=PackedStringArray("sprite")]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_apexs")
+sprite = NodePath("AnimatedSprite3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=587797267]
+shape = SubResource("CapsuleShape3D_twto6")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1235959474]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+modulate = Color(0, 0.8992308, 0.89923066, 1)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_twto6")
+animation = &"run"
+autoplay = "idle"
+frame = 5
+frame_progress = 0.6111652
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1314497566]
+light_color = Color(0.35686275, 1, 1, 1)
+light_energy = 0.1

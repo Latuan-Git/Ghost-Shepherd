@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://dk2u0rsseasbd"]
+
+[ext_resource type="PackedScene" uid="uid://dgw3pgufervsl" path="res://Scenes/Entities/Player/player_camera.tscn" id="1_tlcug"]
+[ext_resource type="PackedScene" uid="uid://33j47ovel0qw" path="res://Scenes/Entities/Player/Player.tscn" id="2_4dpyx"]
+[ext_resource type="Texture2D" uid="uid://bq2f2xohakc3e" path="res://Assets/2D/YogeTexturesVol3Grass/Grass1Textures/Grass1_Color.png" id="2_31phq"]
+[ext_resource type="PackedScene" uid="uid://jv0dabovxctk" path="res://Assets/3D/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_A.fbx" id="2_iixi8"]
+[ext_resource type="PackedScene" uid="uid://ctomgsl0pb6t8" path="res://Assets/3D/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_B.fbx" id="3_cyadu"]
+[ext_resource type="PackedScene" uid="uid://ceckl4a0yf3b5" path="res://Assets/3D/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/arch.fbx" id="5_cyadu"]
+[ext_resource type="PackedScene" uid="uid://ev4nse3ktlqv" path="res://Assets/3D/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence.fbx" id="5_xgxfi"]
+[ext_resource type="PackedScene" uid="uid://co1e4h8wx0umy" path="res://Assets/3D/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_seperate.fbx" id="6_7hll7"]
+[ext_resource type="PackedScene" uid="uid://1q3ic3t46nvx" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Tree_1_A_Color1.fbx" id="7_afv7b"]
+[ext_resource type="PackedScene" uid="uid://bb8vbur0s68rj" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Tree_1_B_Color1.fbx" id="8_7r2dd"]
+[ext_resource type="PackedScene" uid="uid://crso2cm3276xs" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Tree_2_D_Color1.fbx" id="9_k2mw1"]
+[ext_resource type="PackedScene" uid="uid://gdowpkh0vdlk" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Tree_2_E_Color1.fbx" id="10_tjl6l"]
+[ext_resource type="PackedScene" uid="uid://5vaq252ukj8w" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Tree_3_A_Color1.fbx" id="11_3628d"]
+[ext_resource type="PackedScene" uid="uid://0yvii6r82n0o" path="res://Assets/3D/KayKit_Forest_Nature_Pack_1 (1).0_FREE/KayKit_Forest_Nature_Pack_1.0_FREE/Assets/fbx/Tree_3_B_Color1.fbx" id="12_irw6p"]
+[ext_resource type="PackedScene" uid="uid://cyqjo76ipukwn" path="res://Scenes/Assets/3D/Grass/grass_2.tscn" id="15_31phq"]
+[ext_resource type="PackedScene" uid="uid://elglcw1lstfv" path="res://Scenes/Assets/3D/Grass/grass_3.tscn" id="16_7hll7"]
+[ext_resource type="PackedScene" uid="uid://dwkm36a4f8maq" path="res://Scenes/Assets/3D/Grass/grass_4.tscn" id="17_fayjm"]
+[ext_resource type="PackedScene" uid="uid://dvucba075h1s7" path="res://Scenes/Assets/3D/Grass/grass_1.tscn" id="19_fayjm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twto6"]
+albedo_texture = ExtResource("2_31phq")
+uv1_scale = Vector3(0.29, 0.29, 0.29)
+uv1_triplanar = true
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_3mqfk"]
+
+[sub_resource type="Sky" id="Sky_4dpyx"]
+sky_material = SubResource("PhysicalSkyMaterial_3mqfk")
+
+[sub_resource type="Environment" id="Environment_twto6"]
+sky = SubResource("Sky_4dpyx")
+ambient_light_source = 2
+ambient_light_color = Color(0, 0, 0.7490196, 1)
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="FogMaterial" id="FogMaterial_31phq"]
+density = 1.6214
+albedo = Color(0, 0, 0, 1)
+
+[node name="Level1" type="Node3D" unique_id=495223418]
+
+[node name="PlayerCamera" parent="." unique_id=774728571 node_paths=PackedStringArray("player") instance=ExtResource("1_tlcug")]
+transform = Transform3D(-4.371139e-08, -0.76604444, 0.64278764, 0, 0.64278764, 0.76604444, -1, 3.3484866e-08, -2.809714e-08, 4.944, 5.018, 0.688)
+player = NodePath("../Player")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1206397373]
+
+[node name="fence_seperate" parent="Environment" unique_id=2129398775 instance=ExtResource("6_7hll7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.3036522, 0, 3.0246396)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment" unique_id=1926747552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2730625, -0.49672723, -2.68751)
+size = Vector3(14.579102, 1, 16.093872)
+material = SubResource("StandardMaterial3D_twto6")
+
+[node name="path_A" parent="Environment" unique_id=1505248330 instance=ExtResource("2_iixi8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21917963, 0, 4.631597)
+
+[node name="path_B" parent="Environment" unique_id=1047358376 instance=ExtResource("3_cyadu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16170788, 0, 2.8625731)
+
+[node name="path_A2" parent="Environment" unique_id=107626404 instance=ExtResource("2_iixi8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104911804, 0, 1.0700995)
+
+[node name="path_B2" parent="Environment" unique_id=1334464613 instance=ExtResource("3_cyadu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07510424, 0, -0.7657496)
+
+[node name="path_A3" parent="Environment" unique_id=211211156 instance=ExtResource("2_iixi8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07194471, 0, -2.5382724)
+
+[node name="path_B3" parent="Environment" unique_id=722486270 instance=ExtResource("3_cyadu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17590189, 0, -4.3621798)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1273269340]
+environment = SubResource("Environment_twto6")
+
+[node name="arch" parent="Environment" unique_id=1838539117 instance=ExtResource("5_cyadu")]
+transform = Transform3D(0.555, 0, 0, 0, 0.555, 0, 0, 0, 0.555, -0.13775194, -4.7683716e-07, 5.259938)
+
+[node name="fence" parent="Environment" unique_id=270806003 instance=ExtResource("5_xgxfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1651888, 0, 5.2314982)
+
+[node name="fence2" parent="Environment" unique_id=1010542070 instance=ExtResource("5_xgxfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8903904, 0, 5.2314982)
+
+[node name="Tree_1_A_Color1" parent="Environment" unique_id=87755281 instance=ExtResource("7_afv7b")]
+transform = Transform3D(0.60242903, 0, 0.7981725, 0, 1, 0, -0.7981725, 0, 0.60242903, -2.7716413, 0, 3.7990534)
+visible = false
+
+[node name="Tree_1_B_Color1" parent="Environment" unique_id=1879627658 instance=ExtResource("8_7r2dd")]
+transform = Transform3D(0.8994855, 0, 0.43695056, 0, 1, 0, -0.43695056, 0, 0.8994855, -2.7394753, -4.7683716e-07, -5.0666513)
+visible = false
+
+[node name="Tree_2_D_Color1" parent="Environment" unique_id=350875473 instance=ExtResource("9_k2mw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6403909, 0, 1.5179288)
+visible = false
+
+[node name="Tree_2_E_Color1" parent="Environment" unique_id=107664681 instance=ExtResource("10_tjl6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5304751, 0, -2.170899)
+visible = false
+
+[node name="Tree_3_A_Color1" parent="Environment" unique_id=568624784 instance=ExtResource("11_3628d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8115549, 0, 2.509746)
+visible = false
+
+[node name="Tree_3_B_Color1" parent="Environment" unique_id=202845795 instance=ExtResource("12_irw6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4050386, 0, -0.6341908)
+visible = false
+
+[node name="fence3" parent="Environment" unique_id=569775649 instance=ExtResource("5_xgxfi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.90544, 0, 3.4797378)
+
+[node name="fence4" parent="Environment" unique_id=808677556 instance=ExtResource("5_xgxfi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.90544, 0, -0.03135395)
+
+[node name="fence5" parent="Environment" unique_id=1333436550 instance=ExtResource("5_xgxfi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.90544, 0, -3.5405636)
+
+[node name="fence6" parent="Environment" unique_id=1498265753 instance=ExtResource("5_xgxfi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.90544, 0, -7.039293)
+
+[node name="FogVolume" type="FogVolume" parent="Environment" unique_id=174576310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6587639, 1.2036743, 6.197394)
+size = Vector3(16.477295, 4.4073486, 2.1018677)
+material = SubResource("FogMaterial_31phq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment" unique_id=124184976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1809566, 5.5019035)
+visible = false
+light_negative = true
+
+[node name="fence_seperate2" parent="Environment" unique_id=14516661 instance=ExtResource("6_7hll7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.3036522, 0, -0.9684174)
+
+[node name="fence_seperate3" parent="Environment" unique_id=79090953 instance=ExtResource("6_7hll7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.3036522, 0, -4.912275)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment" unique_id=1516584524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31929338, 5.6399846)
+light_negative = true
+
+[node name="Grass1" parent="Environment" unique_id=832038389 instance=ExtResource("19_fayjm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.2959146, 0, -4.748929)
+
+[node name="Grass_B" parent="Environment" unique_id=1256316867 instance=ExtResource("15_31phq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0361528, 0, 3.3965375)
+
+[node name="Grass_C" parent="Environment" unique_id=1571479354 instance=ExtResource("16_7hll7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4287453, 0, 1.9555719)
+
+[node name="Grass_D" parent="Environment" unique_id=253420940 instance=ExtResource("17_fayjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.271617, 0, -3.5454552)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment" unique_id=311171564]
+transform = Transform3D(1, 0, 0, 0, -0.9136803, 0.40643358, 0, -0.40643358, -0.9136803, 0.024357796, 1.3232954, -11.837503)
+visible = false
+light_color = Color(0.8, 0.98039216, 0.98039216, 1)
+light_energy = 18.065
+light_indirect_energy = 2.78
+spot_range = 24.935
+spot_angle = 35.41
+
+[node name="Player" parent="." unique_id=1917041307 instance=ExtResource("2_4dpyx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.7247815, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=756170928]
+transform = Transform3D(1, 0, 0, 0, 0.5940675, 0.80441517, 0, -0.80441517, 0.5940675, 0, 0, 0)
+light_color = Color(0.37254903, 1, 1, 1)
+light_energy = 0.35

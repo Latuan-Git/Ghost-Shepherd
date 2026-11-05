@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://clku0pc4ussgp"]
+
+[ext_resource type="PackedScene" uid="uid://jv0dabovxctk" path="res://Assets/3D/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_A.fbx" id="1_aspt4"]
+
+[node name="Path_A" unique_id=476520407 instance=ExtResource("1_aspt4")]
